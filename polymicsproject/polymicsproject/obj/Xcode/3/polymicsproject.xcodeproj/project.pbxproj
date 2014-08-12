@@ -1,0 +1,246 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		236EEB970000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26FFF8350000000000000000 /* UIKit.framework */; };
+		5048ECA00000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8959B6800000000000000000 /* MapKit.framework */; };
+		1A37F7620000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DC904000000000000000000 /* Foundation.framework */; };
+		2BA565800000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 281458E20000000000000000 /* CoreGraphics.framework */; };
+		39B6B4DC0000000000000000 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208C796E0000000000000000 /* Default-568h@2x.png */; };
+		3625A83E0000000000000000 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 241D860C0000000000000000 /* Info.plist */; };
+		32949BA00000000000000000 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27AE92AA0000000000000000 /* Entitlements.plist */; };
+		2F038F020000000000000000 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3F9F480000000000000000 /* MainStoryboard.storyboard */; };
+		2B7282640000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 3261B8840000000000000000 /* AppDelegate.h */; };
+		27E175C60000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F2C5220000000000000000 /* AppDelegate.m */; };
+		245069280000000000000000 /* polymicsprojectViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 3983D1C00000000000000000 /* polymicsprojectViewController.h */; };
+		20BF5C8A0000000000000000 /* polymicsprojectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14DE5E0000000000000000 /* polymicsprojectViewController.m */; };
+		1D2E4FEC0000000000000000 /* LoginViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = A5EAFC000000000000000000 /* LoginViewController.h */; };
+		199D434E0000000000000000 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436F79A00000000000000000 /* LoginViewController.m */; };
+		160C36B00000000000000000 /* RoomViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 7C8043800000000000000000 /* RoomViewController.h */; };
+		127B2A120000000000000000 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5910D600000000000000000 /* RoomViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		15D953940000000000000000 /* polymicsproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "polymicsproject.app"; path = "polymicsproject.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26FFF8350000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		8959B6800000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		1DC904000000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		281458E20000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		208C796E0000000000000000 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		241D860C0000000000000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "Info.plist"; sourceTree = "<group>"; };
+		27AE92AA0000000000000000 /* Entitlements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Entitlements.plist"; path = "Entitlements.plist"; sourceTree = "<group>"; };
+		2B3F9F480000000000000000 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "MainStoryboard.storyboard"; path = "MainStoryboard.storyboard"; sourceTree = "<group>"; };
+		3261B8840000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		35F2C5220000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+		3983D1C00000000000000000 /* polymicsprojectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "polymicsprojectViewController.h"; path = "polymicsprojectViewController.h"; sourceTree = "<group>"; };
+		3D14DE5E0000000000000000 /* polymicsprojectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "polymicsprojectViewController.m"; path = "polymicsprojectViewController.m"; sourceTree = "<group>"; };
+		A5EAFC000000000000000000 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "LoginViewController.h"; path = "LoginViewController.h"; sourceTree = "<group>"; };
+		436F79A00000000000000000 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "LoginViewController.m"; path = "LoginViewController.m"; sourceTree = "<group>"; };
+		7C8043800000000000000000 /* RoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RoomViewController.h"; path = "RoomViewController.h"; sourceTree = "<group>"; };
+		B5910D600000000000000000 /* RoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "RoomViewController.m"; path = "RoomViewController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39E997F80000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				236EEB970000000000000000 /* UIKit.framework in Frameworks */,
+				5048ECA00000000000000000 /* MapKit.framework in Frameworks */,
+				1A37F7620000000000000000 /* Foundation.framework in Frameworks */,
+				2BA565800000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26E6CA870000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				C405D7400000000000000000 /* polymicsproject */,
+				16F3834E0000000000000000 /* Frameworks */,
+				3199F0610000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3199F0610000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15D953940000000000000000 /* polymicsproject.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		16F3834E0000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26FFF8350000000000000000 /* UIKit.framework */,
+				8959B6800000000000000000 /* MapKit.framework */,
+				1DC904000000000000000000 /* Foundation.framework */,
+				281458E20000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		C405D7400000000000000000 /* polymicsproject */ = {
+			isa = PBXGroup;
+			children = (
+				3261B8840000000000000000 /* AppDelegate.h */,
+				208C796E0000000000000000 /* Default-568h@2x.png */,
+				27AE92AA0000000000000000 /* Entitlements.plist */,
+				241D860C0000000000000000 /* Info.plist */,
+				A5EAFC000000000000000000 /* LoginViewController.h */,
+				2B3F9F480000000000000000 /* MainStoryboard.storyboard */,
+				3983D1C00000000000000000 /* polymicsprojectViewController.h */,
+				7C8043800000000000000000 /* RoomViewController.h */,
+				36DA11C00000000000000000 /* Supporting Files */,
+			);
+			name = "polymicsproject";
+			sourceTree = "<group>";
+		};
+		36DA11C00000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				35F2C5220000000000000000 /* AppDelegate.m */,
+				436F79A00000000000000000 /* LoginViewController.m */,
+				3D14DE5E0000000000000000 /* polymicsprojectViewController.m */,
+				B5910D600000000000000000 /* RoomViewController.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		21A6A9280000000000000000 /* polymicsproject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7003C1500000000000000000 /* Build configuration list for PBXNativeTarget "polymicsproject" */;
+			buildPhases = (
+				EEA1D7400000000000000000 /* Sources */,
+				39E997F80000000000000000 /* Frameworks */,
+				2ED0ABE60000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "polymicsproject";
+			productName = "polymicsproject";
+			productReference = 15D953940000000000000000 /* polymicsproject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A8245A30000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 2C59CF020000000000000000 /* Build configuration list for PBXProject "polymicsproject" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 26E6CA870000000000000000;
+			productRefGroup = 3199F0610000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				21A6A9280000000000000000 /* polymicsproject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2ED0ABE60000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39B6B4DC0000000000000000 /* Default-568h@2x.png in Resources */,
+				3625A83E0000000000000000 /* Info.plist in Resources */,
+				32949BA00000000000000000 /* Entitlements.plist in Resources */,
+				2F038F020000000000000000 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEA1D7400000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B7282640000000000000000 /* AppDelegate.h in Sources */,
+				27E175C60000000000000000 /* AppDelegate.m in Sources */,
+				245069280000000000000000 /* polymicsprojectViewController.h in Sources */,
+				20BF5C8A0000000000000000 /* polymicsprojectViewController.m in Sources */,
+				1D2E4FEC0000000000000000 /* LoginViewController.h in Sources */,
+				199D434E0000000000000000 /* LoginViewController.m in Sources */,
+				160C36B00000000000000000 /* RoomViewController.h in Sources */,
+				127B2A120000000000000000 /* RoomViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1CFB6CD00000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		196A60320000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "polymicsproject";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C59CF020000000000000000 /* Build configuration list for PBXProject "polymicsproject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CFB6CD00000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		7003C1500000000000000000 /* Build configuration list for PBXNativeTarget "polymicsproject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				196A60320000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A8245A30000000000000000 /* Project object */;
+}

@@ -1,0 +1,7 @@
+/Users/Jeff/Projects/polymicsproject/polymicsproject/obj/iPhone/Debug/mtouch-cache/Link/System.Core.dll
+/Users/Jeff/Projects/polymicsproject/polymicsproject/obj/iPhone/Debug/mtouch-cache/Link/mscorlib.dll
+/Users/Jeff/Projects/polymicsproject/polymicsproject/obj/iPhone/Debug/mtouch-cache/Link/monotouch.dll
+/Users/Jeff/Projects/polymicsproject/polymicsproject/obj/iPhone/Debug/mtouch-cache/Link/Newtonsoft.Json.dll
+/Users/Jeff/Projects/polymicsproject/polymicsproject/obj/iPhone/Debug/mtouch-cache/Link/System.dll
+/Users/Jeff/Projects/polymicsproject/polymicsproject/obj/iPhone/Debug/mtouch-cache/Link/System.Runtime.Serialization.dll
+/Users/Jeff/Projects/polymicsproject/polymicsproject/obj/iPhone/Debug/mtouch-cache/Link/polymicsproject.exe
