@@ -14,6 +14,7 @@ using System.Runtime.CompilerServices;
 using MonoTouch.AVFoundation;
 using MonoTouch.Foundation;
 using MonoTouch.AudioToolbox;
+using MonoTouch.AudioUnit;
 
 namespace StudentDemo
 {
@@ -549,8 +550,12 @@ namespace StudentDemo
         }
 
 
-		InputAudioQueue recorder;
+        AudioUnit recorder;
+        const int inputBus = 1;
+        const int outputBus = 0;
 		AudioStreamBasicDescription playerFormat;
+
+		AudioBuffer aBuffer;
 
 		const int AUDIOBUFFERSIZE = 2000;
 		const int BUFFERCOUNT = 3;
@@ -565,32 +570,129 @@ namespace StudentDemo
 			//    recorder.BufferMilliseconds = 50;
 			//    recorder.DataAvailable += SendAudio; //Add event to SendAudio
 
-			playerFormat = new AudioStreamBasicDescription() {
-				SampleRate = 8000,
-				Format = AudioFormatType.LinearPCM,
-				FormatFlags = AudioFormatFlags.LinearPCMIsSignedInteger | AudioFormatFlags.LinearPCMIsPacked,
-				FramesPerPacket = 1,
-				ChannelsPerFrame = 1,
-				BitsPerChannel = 16,
-				BytesPerPacket = 2,
-				BytesPerFrame = 2,
-				Reserved = 0
-				};
 
-			recorder = new InputAudioQueue (playerFormat);
+//			recorder = new InputAudioQueue (playerFormat);
+//
+//
+//			for (int i = 0; i < BUFFERCOUNT; i++) {
+//				IntPtr aBUff;
+//				//recorder.AllocateBuffer (AUDIOBUFFERSIZE, out aBUff);
+//				byteSize = AUDIOBUFFERSIZE * playerFormat.BytesPerPacket;
+//				recorder.AllocateBufferWithPacketDescriptors (byteSize, AUDIOBUFFERSIZE, out aBUff);
+//				recorder.EnqueueBuffer (aBUff, byteSize, null);
+//				Console.WriteLine ("Buffer allocated, enqueueing");
+//			}
 
+			//New stuffs
 
-			for (int i = 0; i < BUFFERCOUNT; i++) {
-				IntPtr aBUff;
-				recorder.AllocateBuffer (AUDIOBUFFERSIZE, out aBUff);
-				byteSize = AUDIOBUFFERSIZE * playerFormat.BytesPerPacket;
-				recorder.AllocateBufferWithPacketDescriptors (byteSize, AUDIOBUFFERSIZE, out aBUff);
-				recorder.EnqueueBuffer (aBUff, byteSize, null);
-				Console.WriteLine ("Buffer allocated, enqueueing");
-			}
+            var inputComponent = AudioComponent.FindNextComponent(
+                null,
+                new AudioComponentDescription
+                {
+                    ComponentFlags = 0,
+                    ComponentFlagsMask = 0,
+                    ComponentManufacturer = AudioComponentManufacturerType.Apple,
+                    ComponentSubType = (int)AudioTypeOutput.Remote,
+                    ComponentType = AudioComponentType.Output
+                });
+
+            recorder = inputComponent.CreateAudioUnit();
+            recorder.SetEnableIO(true, AudioUnitScopeType.Input, inputBus);
+            recorder.SetEnableIO(false, AudioUnitScopeType.Output, outputBus);
+
+            var audioFormat = new AudioStreamBasicDescription
+                {
+                    SampleRate = Globals.SAMPLERATE,
+                    Format = AudioFormatType.LinearPCM,
+                    FormatFlags = AudioFormatFlags.IsSignedInteger | AudioFormatFlags.IsPacked,
+                    FramesPerPacket = 1,
+                    ChannelsPerFrame = 1,
+                    BitsPerChannel = 16,
+                    BytesPerPacket = 2,
+                    BytesPerFrame = 2
+                };
+
+            recorder.SetAudioFormat(audioFormat, AudioUnitScopeType.Output, inputBus);
+            recorder.SetAudioFormat(audioFormat, AudioUnitScopeType.Input, outputBus);
+
+            recorder.SetInputCallback(AudioInputCallBack, AudioUnitScopeType.Global, inputBus);
+
+            // TODO: Disable buffers (requires interop)
+            aBuffer = new AudioBuffer
+                {
+                    NumberChannels = 1,
+                    DataByteSize = 512 * 2,
+                    Data = System.Runtime.InteropServices.Marshal.AllocHGlobal(512 * 2)
+                };
 			isTalking = true;
-			recorder.InputCompleted += SendAudio;
+			//recorder.InputCompleted += SendAudio;
+			//recorder.Start ();
+
+			recorder.Initialize ();
 			recorder.Start ();
+		}
+
+		AudioUnitStatus AudioInputCallBack (AudioUnitRenderActionFlags actionFlags, AudioTimeStamp timeStamp, uint busNumber, uint numberFrames, AudioUnit audioUnit)
+		{
+			MemoryStream ms = new MemoryStream();
+
+			String s = "a000";
+			byte[] bufWriter = Encoding.ASCII.GetBytes(s.ToCharArray(), 0, 4);
+			ms.Write(bufWriter, 0, 4);
+
+			bufWriter = BitConverter.GetBytes(AudioSessionId);
+			if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
+			ms.Write(bufWriter, 0, 4);
+
+			long time = (long) (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalMilliseconds;
+
+			//Console.WriteLine ((time - lasttime) + " ms delay");
+			lasttime = time;
+			bufWriter = BitConverter.GetBytes(time);
+			if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
+			ms.Write(bufWriter, 0, 8);
+
+            var buffer = new AudioBuffer()
+                {
+                    NumberChannels = 1,
+                    DataByteSize = (int)numberFrames * 2,
+                    Data = System.Runtime.InteropServices.Marshal.AllocHGlobal((int)numberFrames * 2)
+                };
+
+            var bufferList = new AudioBuffers(1);
+            bufferList[0] = buffer;
+
+            var status = audioUnit.Render(ref actionFlags, timeStamp, busNumber, numberFrames, bufferList);
+
+            var send = new byte[buffer.DataByteSize];
+            System.Runtime.InteropServices.Marshal.Copy(buffer.Data, send, 0, send.Length);
+
+            ms.Write (send, 0, send.Length);
+
+            Console.Write("\n Buffer: ");
+            foreach (byte b in send)
+                Console.Write("\\x" + b);
+            Console.Write("\n");
+
+            System.Runtime.InteropServices.Marshal.FreeHGlobal(buffer.Data);
+
+			byte[] sendbuf = ms.ToArray();
+			if (sendbuf.Length > 4096) throw new Exception("Packet size too large!");
+			Task tk = Task.Factory.StartNew(() =>
+				{
+					try
+					{
+						var aSender = audioCaller.BeginSend(sendbuf, sendbuf.Length, null, null);
+						aSender.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3));
+						if (aSender.IsCompleted) audioCaller.EndSend(aSender);
+					}
+					catch
+					{
+
+					}
+				});
+
+			return AudioUnitStatus.OK;
 		}
 
         public void stopListening()
@@ -606,7 +708,9 @@ namespace StudentDemo
         }
 
         public void stopTalking()
-        {
+		{
+			try {recorder.Stop ();} catch {
+			}
             isTalking = false;
         }
 
@@ -644,24 +748,24 @@ namespace StudentDemo
 
 		public void SendAudio(object sender, InputCompletedEventArgs e)
         {
-            MemoryStream ms = new MemoryStream();
-
-            String s = "a000";
-
-            byte[] bufWriter = Encoding.ASCII.GetBytes(s.ToCharArray(), 0, 4);
-            ms.Write(bufWriter, 0, 4);
-
-            bufWriter = BitConverter.GetBytes(AudioSessionId);
-            if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
-            ms.Write(bufWriter, 0, 4);
+//            MemoryStream ms = new MemoryStream();
+//
+//            String s = "a000";
+//
+//            byte[] bufWriter = Encoding.ASCII.GetBytes(s.ToCharArray(), 0, 4);
+//            ms.Write(bufWriter, 0, 4);
+//
+//            bufWriter = BitConverter.GetBytes(AudioSessionId);
+//            if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
+//            ms.Write(bufWriter, 0, 4);
 
             //bufWriter = BitConverter.GetBytes(0);
 			long time = (long) (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalMilliseconds;
 			Console.WriteLine ((time - lasttime) + " ms delay");
 			lasttime = time;
-			bufWriter = BitConverter.GetBytes(time);
-            if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
-            ms.Write(bufWriter, 0, 8);
+//			bufWriter = BitConverter.GetBytes(time);
+//            if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
+//            ms.Write(bufWriter, 0, 8);
 
 			/*Console.WriteLine ("MS Length before: " + ms.Length);
 
@@ -676,33 +780,33 @@ namespace StudentDemo
 				}
 			}*/
 
-			var buffer = (AudioQueueBuffer)System.Runtime.InteropServices.Marshal.PtrToStructure(e.IntPtrBuffer, typeof(AudioQueueBuffer));
-
-			var send = new byte[buffer.AudioDataByteSize];
-			System.Runtime.InteropServices.Marshal.Copy(buffer.AudioData, send, 0, (int)buffer.AudioDataByteSize);
-			ms.Write (send, 0, send.Length);
-			Console.WriteLine ("\nMS Length after: " + ms.Length);
+//			var buffer = (AudioQueueBuffer)System.Runtime.InteropServices.Marshal.PtrToStructure(e.IntPtrBuffer, typeof(AudioQueueBuffer));
+//
+//			var send = new byte[buffer.AudioDataByteSize];
+//			System.Runtime.InteropServices.Marshal.Copy(buffer.AudioData, send, 0, (int)buffer.AudioDataByteSize);
+//			ms.Write (send, 0, send.Length);
+//			Console.WriteLine ("\nMS Length after: " + ms.Length);
             //short sample16Bit = BitConverter.ToInt16(payload, 0);
             //InputLoudness = Math.Abs(sample16Bit / 32000.00);
 
-			if (isTalking) recorder.EnqueueBuffer (e.IntPtrBuffer, byteSize, null);
+			//if (isTalking) recorder.EnqueueBuffer (e.IntPtrBuffer, byteSize, null);
 
 
-            byte[] sendbuf = ms.ToArray();
+//            byte[] sendbuf = ms.ToArray();
             //if (sendbuf.Length > 4096) throw new Exception("Packet size too large!");
-            Task tk = Task.Factory.StartNew(() =>
-            {
-                try
-                {
-                    var aSender = audioCaller.BeginSend(sendbuf, sendbuf.Length, null, null);
-                    aSender.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3));
-                    if (aSender.IsCompleted) audioCaller.EndSend(aSender);
-                }
-                catch
-                {
-
-                }
-            });
+//            Task tk = Task.Factory.StartNew(() =>
+//            {
+//                try
+//                {
+//                    var aSender = audioCaller.BeginSend(sendbuf, sendbuf.Length, null, null);
+//                    aSender.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3));
+//                    if (aSender.IsCompleted) audioCaller.EndSend(aSender);
+//                }
+//                catch
+//                {
+//
+//                }
+//            });
         }
 
 
