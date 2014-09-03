@@ -27,7 +27,13 @@ namespace polymicsproject
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-			engine = new StudentDemo.FibeClient ();
+            engine = new StudentDemo.FibeClient ();
+
+            if (this.NavigationItem.BackBarButtonItem != null)
+            {
+                this.NavigationItem.BackBarButtonItem.TintColor = new UIColor(1.0f, 1.0f, 1.0f, 1.0f);
+                this.NavigationItem.BackBarButtonItem.Title = " ";
+            }
 
 			// Perform any additional setup after loading the view, typically from a nib.
 			btnConnect.TouchUpInside += (object sender, EventArgs e) =>  {

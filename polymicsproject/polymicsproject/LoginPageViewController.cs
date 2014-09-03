@@ -23,6 +23,7 @@ namespace polymicsproject
 
 				await Task.Run (() => {
 					x = Application.engine.ConnectTo ("hysw.org");
+                    Console.WriteLine("Connection established!");
 				});
 
 				loadingOverlay.Hide ();
@@ -35,8 +36,24 @@ namespace polymicsproject
 
 		public override void ViewDidLoad ()
 		{
-			base.ViewDidLoad ();
-			ConnectToServer ();
+            base.ViewDidLoad ();
+
+
+            if (this.NavigationItem.BackBarButtonItem != null)
+            {
+                this.NavigationItem.BackBarButtonItem.TintColor = new UIColor(1.0f, 1.0f, 1.0f, 1.0f);
+                this.NavigationItem.BackBarButtonItem.Title = " ";
+            }
+
+//            this.NavigationController.SetNavigationBarHidden(true, true);
+
+            UIImage image = UIImage.FromBundle("Background.jpg");
+            image = image.Scale(new System.Drawing.SizeF(320f, 580f));
+            this.View.BackgroundColor = UIColor.FromPatternImage(image);
+            //this.NavigationController.NavigationBar.SetBackgroundImage(image, UIBarMetrics.Default);
+//            this.NavigationController.NavigationBaZr.Alpha = 0.1f;
+
+            ConnectToServer ();
 			btnLogin.TouchUpInside += LoginBtnClick;
 			txtUsername.ShouldReturn += JumptoPassword;
 			txtPassword.ShouldReturn += LoginReturn;
@@ -93,8 +110,9 @@ namespace polymicsproject
 			await Task.Run (() => {
 				try {
 					x = Application.engine.list();
-				} catch {
+                } catch (Exception ex) {
 					x = false;
+                    Console.WriteLine(ex.StackTrace);
 				}
 			});
 			if (!x) {

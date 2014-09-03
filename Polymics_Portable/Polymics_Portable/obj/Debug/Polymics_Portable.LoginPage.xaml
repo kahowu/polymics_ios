@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Polymics_Portable.LoginPage">
+	<Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+		<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Vertical" BackgroundColor="Black">
+			<Entry x:Name="txtUsername" Placeholder="Username"></Entry>
+			<Entry x:Name="txtPassword" Placeholder="Password" IsPassword="true" />
+			<Button x:Name="btnLogin" HorizontalOptions="Center" Text="Sign in" />
+		</StackLayout>
+	</Grid>
+</ContentPage>

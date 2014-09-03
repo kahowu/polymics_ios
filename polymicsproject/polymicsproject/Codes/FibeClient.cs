@@ -129,7 +129,11 @@ namespace StudentDemo
 
         public void FlushConnection()
         {
-            if (connector != null) connector.disconnect();
+            try {
+                if (connector != null) connector.disconnect();
+                connector = null;
+            } catch {
+            }
         }
 
         internal bool login(string username, string password)

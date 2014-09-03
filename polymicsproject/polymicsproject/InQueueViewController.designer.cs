@@ -24,6 +24,10 @@ namespace polymicsproject
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView imgQueued { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel labelCounter { get; set; }
 
 		[Outlet]
@@ -39,6 +43,10 @@ namespace polymicsproject
 			if (imgQueue != null) {
 				imgQueue.Dispose ();
 				imgQueue = null;
+			}
+			if (imgQueued != null) {
+				imgQueued.Dispose ();
+				imgQueued = null;
 			}
 			if (labelCounter != null) {
 				labelCounter.Dispose ();

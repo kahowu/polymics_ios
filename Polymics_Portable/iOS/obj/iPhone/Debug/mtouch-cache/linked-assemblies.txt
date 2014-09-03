@@ -1,0 +1,17 @@
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Newtonsoft.Json.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Xamarin.Forms.Platform.iOS.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/System.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/System.Xml.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Xamarin.Forms.Xaml.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/System.Xml.Linq.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/System.Core.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/monotouch.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Polymics_Portable.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Mono.Dynamic.Interpreter.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Microsoft.CSharp.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Mono.CSharp.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/System.Net.Http.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Xamarin.Forms.Core.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/mscorlib.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/System.Runtime.Serialization.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache/Link/Polymics_PortableiOS.exe

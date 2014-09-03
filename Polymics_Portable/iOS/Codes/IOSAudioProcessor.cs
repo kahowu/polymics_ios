@@ -19,13 +19,32 @@ namespace Polymics_Portable.iOS
         const int BUFFERCOUNT = 3;
         int byteSize;
 
-        public bool initializeAudio() {
+        public event EventHandler<byte[]> DataAvailable;
+
+        public override bool stop() {
+            try
+            {
+                recorder.Stop();
+                return true;
+            }
+            catch
+            {
+            }
+            return false;
         }
 
-        public AudioProcessor()
+        public override bool initializeAudio() {
+            try {
+                recorder.Initialize();
+                recorder.Start();
+                return true;
+            } catch {
+            }
+            return false;
+        }
+
+        public IOSAudioProcessor()
         {
-
-
             var inputComponent = AudioComponent.FindNextComponent(
                 null,
                 new AudioComponentDescription
@@ -43,7 +62,7 @@ namespace Polymics_Portable.iOS
 
             var audioFormat = new AudioStreamBasicDescription
                 {
-                    SampleRate = Globals.SAMPLERATE,
+                    SampleRate = StudentDemo.Globals.SAMPLERATE,
                     Format = AudioFormatType.LinearPCM,
                     FormatFlags = AudioFormatFlags.IsSignedInteger | AudioFormatFlags.IsPacked,
                     FramesPerPacket = 1,
@@ -66,6 +85,40 @@ namespace Polymics_Portable.iOS
                     Data = System.Runtime.InteropServices.Marshal.AllocHGlobal(512 * 2)
                 };
 
+        }
+
+        AudioUnitStatus AudioInputCallBack (AudioUnitRenderActionFlags actionFlags, AudioTimeStamp timeStamp, uint busNumber, uint numberFrames, AudioUnit audioUnit)
+        {
+
+            var buffer = new AudioBuffer()
+                {
+                    NumberChannels = 1,
+                    DataByteSize = (int)numberFrames * 2,
+                    Data = System.Runtime.InteropServices.Marshal.AllocHGlobal((int)numberFrames * 2)
+                };
+
+            var bufferList = new AudioBuffers(1);
+            bufferList[0] = buffer;
+
+            var status = audioUnit.Render(ref actionFlags, timeStamp, busNumber, numberFrames, bufferList);
+
+            var send = new byte[buffer.DataByteSize];
+            System.Runtime.InteropServices.Marshal.Copy(buffer.Data, send, 0, send.Length);
+
+            var handler = DataAvailable;
+            if (handler != null)
+                handler(this, send);
+
+            Console.Write("\n Buffer: ");
+            foreach (byte b in send)
+                Console.Write("\\x" + b);
+            Console.Write("\n");
+
+            System.Runtime.InteropServices.Marshal.FreeHGlobal(buffer.Data);
+
+
+
+            return AudioUnitStatus.OK;
         }
     }
 }

@@ -6,9 +6,9 @@ namespace Polymics_Portable
     {
         public event EventHandler<byte[]> DataAvailable;
 
-        public bool initializeAudio();
+        public abstract bool initializeAudio();
 
-        public bool stop();
+        public abstract bool stop();
     }
 }
 

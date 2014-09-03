@@ -18,7 +18,13 @@ namespace polymicsproject
 
 		public override void ViewDidLoad ()
 		{
-			base.ViewDidLoad ();
+            base.ViewDidLoad ();
+
+            if (this.NavigationItem.BackBarButtonItem != null)
+            {
+                this.NavigationItem.BackBarButtonItem.TintColor = new UIColor(1.0f, 1.0f, 1.0f, 1.0f);
+                this.NavigationItem.BackBarButtonItem.Title = " ";
+            }
 
 			if (joined != null) {
 				labelRequest.Text = joined.Title;
@@ -34,7 +40,7 @@ namespace polymicsproject
 			InQueueViewController queueView = Storyboard.InstantiateViewController ("InQueueViewController") as InQueueViewController;
 			queueView.request = x;
 			queueView.joined = joined;
-			this.NavigationController.PushViewController (queueView, false);
+			this.NavigationController.PushViewController (queueView, true);
 		}
 	}
 }

@@ -1,0 +1,33 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.MADLab 08" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Polymics_Portable/obj/Debug/LoginPage.xaml.g.cs">
+    <Files>
+      <File FileName="iOS/Codes/FibeClient.cs" Line="19" Column="19" />
+      <File FileName="Polymics_Portable/Codes/IClient.cs" Line="28" Column="28" />
+      <File FileName="Polymics_Portable/LoginPage.xaml" Line="45" Column="45" />
+      <File FileName="Polymics_Portable/LoginPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="13" Column="13" />
+      <File FileName="Polymics_Portable/obj/Debug/LoginPage.xaml.g.cs" Line="1" Column="1" />
+      <File FileName="Polymics_Portable/App.cs" Line="31" Column="31" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Polymics_Portable" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Codes" expanded="True" />
+            <Node name="LoginPage.xaml" expanded="True" selected="True" />
+          </Node>
+          <Node name="Polymics_Portable.iOS" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Codes" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,10 @@
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/bin/Debug/Polymics_Portable.dll.mdb
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/bin/Debug/Polymics_Portable.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/obj/Debug/Polymics_Portable.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/obj/Debug/Polymics_Portable.dll.mdb
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/bin/Debug/Xamarin.Forms.Core.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/bin/Debug/Xamarin.Forms.Xaml.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/bin/Debug/Newtonsoft.Json.dll
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/obj/Debug/Polymics_Portable.LoginPage.xaml
+/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/obj/Debug/LoginPage.xaml.g.cs

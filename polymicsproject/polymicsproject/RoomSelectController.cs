@@ -22,7 +22,17 @@ namespace polymicsproject
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
-		}
+
+            InvokeOnMainThread(() =>
+                {
+                    if (this.NavigationItem.BackBarButtonItem != null)
+                    {
+                        this.NavigationItem.BackBarButtonItem.TintColor = new UIColor(1.0f, 1.0f, 1.0f, 1.0f);
+                        this.NavigationItem.BackBarButtonItem.Title = " ";
+                    }
+                    //this.NavigationController.SetNavigationBarHidden(false, true);
+                });
+        }
 
 		class RoomListController : UITableViewSource 
 		{
@@ -52,6 +62,8 @@ namespace polymicsproject
 
 				int row = indexPath.Row;
 				cell.TextLabel.Text = controller.classList [row];
+                cell.BackgroundColor = new UIColor(0.19f, 0.19f, 0.19f, 1.0f);
+                cell.TextLabel.TextColor = new UIColor(1.0f, 1.0f, 1.0f, 1.0f);
 				return cell;
 			}
 

@@ -1,0 +1,37 @@
+# Version: 7.2.6.28 (606f31a)
+# [first argument, ignore] # /Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/bin/iPhone/Debug/mtouch.exe
+/Developer/MonoTouch/usr/bin/mtouch \
+	-sdkroot \
+	/Applications/Xcode.app/Contents/Developer \
+	--cache \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/obj/iPhone/Debug/mtouch-cache \
+	--nomanifest \
+	--nosign \
+	-dev \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/bin/iPhone/Debug/Polymics_PortableiOS.app \
+	-r \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/Polymics_Portable/bin/Debug/Polymics_Portable.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.Xml.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll \
+	-r \
+	/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll \
+	-r \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/packages/Xamarin.Forms.1.0.6186/lib/MonoTouch10/Xamarin.Forms.Platform.iOS.dll \
+	-r \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/packages/Xamarin.Forms.1.0.6186/lib/MonoTouch10/Xamarin.Forms.Core.dll \
+	-r \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/packages/Xamarin.Forms.1.0.6186/lib/MonoTouch10/Xamarin.Forms.Xaml.dll \
+	-r \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/packages/Newtonsoft.Json.6.0.4/lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll \
+	-debug \
+	-linksdkonly \
+	-sdk \
+	7.1 \
+	-targetver \
+	7.0 \
+	--abi=armv7 \
+	/Users/jeffwu/Documents/polymics_ios/Polymics_Portable/iOS/bin/iPhone/Debug/Polymics_PortableiOS.exe \

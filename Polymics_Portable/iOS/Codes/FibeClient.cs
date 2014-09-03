@@ -15,7 +15,7 @@ using Polymics_Portable;
 
 namespace StudentDemo
 {
-    public class FibeClient
+    public partial class FibeClient : IClient
     {
         public const int CONNECTIONPORT = Globals.CONNECTIONPORT;
 
@@ -96,6 +96,11 @@ namespace StudentDemo
             }
         }
 
+        public string getError()
+        {
+            return CurrentError;
+        }
+
         public bool VerifyAuthentication(String s)
         {
             return true;
@@ -133,7 +138,7 @@ namespace StudentDemo
             }
         }
 
-        internal bool login(string username, string password)
+        public bool login(string username, string password)
         {
             Payload p = Payload.makePayload();
             p.request = "login";
@@ -157,7 +162,7 @@ namespace StudentDemo
             }
         }
 
-        internal bool register(string username, string password)
+        public bool register(string username, string password)
         {
             Payload p = Payload.makePayload();
             p.request = "regist";
@@ -176,7 +181,7 @@ namespace StudentDemo
             }
         }
 
-        internal bool list()
+        public bool list()
         {
             Payload p = Payload.makePayload();
             p.sessionid = this.SessionID;
@@ -206,7 +211,7 @@ namespace StudentDemo
             }
         }
 
-        internal bool createGroup(String name)
+        public bool createGroup(String name)
         {
             Payload p = makePayload();
             p.request = "create_group";
@@ -445,9 +450,6 @@ namespace StudentDemo
             }
         }
 
-
-		public static NSDictionary settings;
-
         int packetIdentity;
 
         int timestamp
@@ -556,7 +558,7 @@ namespace StudentDemo
 		{
             proc = null;
             #if __IOS__
-            proc = new IOSAudioProcessor();
+            proc = new Polymics_Portable.iOS.IOSAudioProcessor();
             #endif
 
 
@@ -625,7 +627,7 @@ namespace StudentDemo
 
         public void stopTalking()
 		{
-			try {recorder.Stop ();} catch {
+			try {proc.stop ();} catch {
 			}
             isTalking = false;
         }
@@ -661,69 +663,6 @@ namespace StudentDemo
         }
 
 		long lasttime = 0;
-
-		public void SendAudio(object sender, InputCompletedEventArgs e)
-        {
-//            MemoryStream ms = new MemoryStream();
-//
-//            String s = "a000";
-//
-//            byte[] bufWriter = Encoding.ASCII.GetBytes(s.ToCharArray(), 0, 4);
-//            ms.Write(bufWriter, 0, 4);
-//
-//            bufWriter = BitConverter.GetBytes(AudioSessionId);
-//            if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
-//            ms.Write(bufWriter, 0, 4);
-
-            //bufWriter = BitConverter.GetBytes(0);
-			long time = (long) (DateTime.UtcNow - new DateTime(1970, 1, 1)).TotalMilliseconds;
-			Console.WriteLine ((time - lasttime) + " ms delay");
-			lasttime = time;
-//			bufWriter = BitConverter.GetBytes(time);
-//            if (BitConverter.IsLittleEndian) Array.Reverse(bufWriter);
-//            ms.Write(bufWriter, 0, 8);
-
-			/*Console.WriteLine ("MS Length before: " + ms.Length);
-
-			unsafe {
-				byte* bufptr = (byte*) e.IntPtrBuffer;
-
-				for (int i = 0; i < 1280; i++) {
-					byte pt = (*(bufptr + i));
-					//if (BitConverter.IsLittleEndian) Array.Reverse(pt);
-					ms.Write (new byte[] { pt }, 0, 1);
-					Console.Write ("\\x" + pt);
-				}
-			}*/
-
-//			var buffer = (AudioQueueBuffer)System.Runtime.InteropServices.Marshal.PtrToStructure(e.IntPtrBuffer, typeof(AudioQueueBuffer));
-//
-//			var send = new byte[buffer.AudioDataByteSize];
-//			System.Runtime.InteropServices.Marshal.Copy(buffer.AudioData, send, 0, (int)buffer.AudioDataByteSize);
-//			ms.Write (send, 0, send.Length);
-//			Console.WriteLine ("\nMS Length after: " + ms.Length);
-            //short sample16Bit = BitConverter.ToInt16(payload, 0);
-            //InputLoudness = Math.Abs(sample16Bit / 32000.00);
-
-			//if (isTalking) recorder.EnqueueBuffer (e.IntPtrBuffer, byteSize, null);
-
-
-//            byte[] sendbuf = ms.ToArray();
-            //if (sendbuf.Length > 4096) throw new Exception("Packet size too large!");
-//            Task tk = Task.Factory.StartNew(() =>
-//            {
-//                try
-//                {
-//                    var aSender = audioCaller.BeginSend(sendbuf, sendbuf.Length, null, null);
-//                    aSender.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(3));
-//                    if (aSender.IsCompleted) audioCaller.EndSend(aSender);
-//                }
-//                catch
-//                {
-//
-//                }
-//            });
-        }
 
 
         public void Dispose()

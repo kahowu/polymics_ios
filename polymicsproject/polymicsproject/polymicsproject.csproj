@@ -103,6 +103,7 @@
     <BundleResource Include="Resources\Default-568h%402x.png" />
     <BundleResource Include="Resources\mic-grey.png" />
     <BundleResource Include="Resources\mic-green.png" />
+    <BundleResource Include="Resources\Background.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -115,7 +116,6 @@
     <Compile Include="polymicsprojectViewController.designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConnectorErrorEventArgs.cs" />
     <Compile Include="Codes\Api.cs" />
     <Compile Include="Codes\Enities.cs" />
     <Compile Include="Codes\FibeClient.cs" />
@@ -139,6 +139,7 @@
     <Compile Include="InQueueViewController.designer.cs">
       <DependentUpon>InQueueViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Codes\ConnectorErrorEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
