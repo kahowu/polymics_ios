@@ -1,26 +1,6 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.MADLab 08" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="polymicsproject/LoginPageViewController.cs">
-    <Files>
-      <File FileName="polymicsproject/LoginPageViewController.cs" Line="1" Column="1" />
-      <File FileName="polymicsproject/Codes/FibeClient.cs" Line="17" Column="17" />
-      <File FileName="polymicsproject/InClassController.cs" Line="1" Column="1" />
-      <File FileName="polymicsproject/RoomSelectController.cs" Line="23" Column="23" />
-      <File FileName="polymicsproject/Main.cs" Line="1" Column="1" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="polymicsproject" expanded="True">
-            <Node name="References" expanded="True" />
-            <Node name="Codes" expanded="True" />
-            <Node name="Resources" expanded="True" />
-            <Node name="LoginPageViewController.cs" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/jeffwu/Documents/polymics_ios/polymicsproject/polymicsproject/Codes/Api.cs" line="142" column="1" />

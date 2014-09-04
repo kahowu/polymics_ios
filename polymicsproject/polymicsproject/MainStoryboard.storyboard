@@ -119,7 +119,6 @@
                         <outlet property="txtUsername" destination="37" id="name-outlet-37"/>
                         <outlet property="txtPassword" destination="39" id="name-outlet-39"/>
                     </connections>
-                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,11 +136,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" customColorSpace="calibratedWhite" colorSpace="calibratedRGB" red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72" fixedFrame="YES">
-                                <rect key="frame" x="100" y="485" width="120" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72" customClass="SwipeButton" fixedFrame="YES">
+                                <rect key="frame" x="60" y="484" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Join the queue">
-                                    <color key="titleShadowColor" colorSpace="calibratedRGB" red="0.31372549019607843" green="0.807843137254902" blue="0.43137254901960786" alpha="1"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <state key="normal" title="Button">
                                     <color key="titleColor" colorSpace="calibratedRGB" red="1" green="1" blue="1" alpha="1"/>
                                 </state>
                             </button>

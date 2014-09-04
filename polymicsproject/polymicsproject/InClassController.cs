@@ -30,7 +30,8 @@ namespace polymicsproject
 				labelRequest.Text = joined.Title;
 			}
 
-			btnRequest.TouchUpInside += MakeRequest;
+            btnRequest.Swiped += MakeRequest;
+			//btnRequest.TouchUpInside += MakeRequest;
 		}
 
 		void MakeRequest (object sender, EventArgs e)

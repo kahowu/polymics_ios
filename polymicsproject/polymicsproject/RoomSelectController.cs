@@ -19,6 +19,11 @@ namespace polymicsproject
 			TableView.Source = new RoomListController (this);
 		}
 
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+        }
+
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();

@@ -1,14 +1,14 @@
 # Version: 7.2.6.28 (606f31a)
-# [first argument, ignore] # /Users/jeffwu/Documents/polymics_ios/polymicsproject/polymicsproject/bin/iPhoneSimulator/Debug/mtouch.exe
+# [first argument, ignore] # /Users/jeffwu/Desktop/polymics_ios/polymicsproject/polymicsproject/bin/iPhoneSimulator/Debug/mtouch.exe
 /Developer/MonoTouch/usr/bin/mtouch \
 	-sdkroot \
 	/Applications/Xcode.app/Contents/Developer \
 	--cache \
-	/Users/jeffwu/Documents/polymics_ios/polymicsproject/polymicsproject/obj/iPhoneSimulator/Debug/mtouch-cache \
+	/Users/jeffwu/Desktop/polymics_ios/polymicsproject/polymicsproject/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--nomanifest \
 	--nosign \
 	-sim \
-	/Users/jeffwu/Documents/polymics_ios/polymicsproject/polymicsproject/bin/iPhoneSimulator/Debug/polymicsproject.app \
+	/Users/jeffwu/Desktop/polymics_ios/polymicsproject/polymicsproject/bin/iPhoneSimulator/Debug/polymicsproject.app \
 	-r \
 	/Developer/MonoTouch/usr/lib/mono/2.1/System.dll \
 	-r \
@@ -18,7 +18,7 @@
 	-r \
 	/Developer/MonoTouch/usr/lib/mono/2.1/System.Json.dll \
 	-r \
-	/Users/jeffwu/Documents/polymics_ios/polymicsproject/Components/json.net-4.5.11/lib/ios/Newtonsoft.Json.dll \
+	/Users/jeffwu/Desktop/polymics_ios/polymicsproject/Components/json.net-4.5.11/lib/ios/Newtonsoft.Json.dll \
 	-r \
 	/Developer/MonoTouch/usr/lib/mono/2.1/monotouch.dll \
 	-debug \
@@ -28,4 +28,4 @@
 	-targetver \
 	7.0 \
 	--abi=i386 \
-	/Users/jeffwu/Documents/polymics_ios/polymicsproject/polymicsproject/bin/iPhoneSimulator/Debug/polymicsproject.exe \
+	/Users/jeffwu/Desktop/polymics_ios/polymicsproject/polymicsproject/bin/iPhoneSimulator/Debug/polymicsproject.exe \

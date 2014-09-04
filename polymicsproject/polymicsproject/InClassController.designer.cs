@@ -16,7 +16,7 @@ namespace polymicsproject
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIButton btnRequest { get; set; }
+		SwipeButton btnRequest { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]

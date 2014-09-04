@@ -34,6 +34,19 @@ namespace polymicsproject
 			}
 		}
 
+        public override void ViewDidAppear(bool animated)
+        {
+            this.NavigationController.SetNavigationBarHidden(true, false);
+            base.ViewDidAppear(animated);
+        }
+
+        public override void ViewDidDisappear(bool animated)
+        {
+            this.NavigationController.SetNavigationBarHidden(false, true);
+            this.NavigationController.NavigationBar.Alpha = 0.75f;
+            base.ViewDidDisappear(animated);
+        }
+
 		public override void ViewDidLoad ()
 		{
             base.ViewDidLoad ();
@@ -44,8 +57,6 @@ namespace polymicsproject
                 this.NavigationItem.BackBarButtonItem.TintColor = new UIColor(1.0f, 1.0f, 1.0f, 1.0f);
                 this.NavigationItem.BackBarButtonItem.Title = " ";
             }
-
-//            this.NavigationController.SetNavigationBarHidden(true, true);
 
             UIImage image = UIImage.FromBundle("Background.jpg");
             image = image.Scale(new System.Drawing.SizeF(320f, 580f));

@@ -6,6 +6,8 @@
 #include <objc/runtime.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/CAEmitterBehavior.h>
 
 
 id native_to_managed_trampoline_1 (id self, SEL _cmd, MonoMethod **managed_method_ptr, const char *r0, const char *r1)
@@ -653,7 +655,7 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 	-(void) setBtnRequest:(id)p0
 	{
 		static MonoMethod *managed_method = NULL;
-		native_to_managed_trampoline_2 (self, _cmd, &managed_method, p0, "MonoTouch.UIKit.UIButton, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", "polymicsproject.InClassController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "set_btnRequest");
+		native_to_managed_trampoline_2 (self, _cmd, &managed_method, p0, "polymicsproject.SwipeButton, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "polymicsproject.InClassController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "set_btnRequest");
 	}
 
 	-(id) labelRequest
@@ -845,6 +847,54 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 	}
 @end
 
+@interface SwipeButton : UIButton {
+	void *__monoObjectGCHandle;
+}
+	-(void) release;
+	-(id) retain;
+	-(void) dealloc;
+	-(void) touchesMoved:(id)p0 withEvent:(id)p1;
+	-(void) touchesEnded:(id)p0 withEvent:(id)p1;
+	-(bool) conformsToProtocol:(void *)p0;
+@end
+@implementation SwipeButton { } 
+	-(void) release
+	{
+		monotouch_release_trampoline (self, _cmd);
+	}
+
+	-(id) retain
+	{
+		return monotouch_retain_trampoline (self, _cmd);
+	}
+
+	-(void) dealloc
+	{
+		int gchandle = monotouch_get_gchandle (self);
+		monotouch_unregister_object (self, mono_gchandle_get_target (gchandle));
+		monotouch_free_gchandle (self, gchandle);
+		[super dealloc];
+	}
+
+	-(void) touchesMoved:(id)p0 withEvent:(id)p1
+	{
+		static MonoMethod *managed_method = NULL;
+		native_to_managed_trampoline_7 (self, _cmd, &managed_method, p0, p1, "MonoTouch.Foundation.NSSet, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", "MonoTouch.UIKit.UIEvent, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", "polymicsproject.SwipeButton, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "TouchesMoved");
+	}
+
+	-(void) touchesEnded:(id)p0 withEvent:(id)p1
+	{
+		static MonoMethod *managed_method = NULL;
+		native_to_managed_trampoline_7 (self, _cmd, &managed_method, p0, p1, "MonoTouch.Foundation.NSSet, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", "MonoTouch.UIKit.UIEvent, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", "polymicsproject.SwipeButton, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "TouchesEnded");
+	}
+
+	-(bool) conformsToProtocol:(void *)p0
+	{
+		static MonoMethod *managed_method = NULL;
+		return native_to_managed_trampoline_3 (self, _cmd, &managed_method, p0, "System.IntPtr, mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", "MonoTouch.Foundation.NSObject, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", "InvokeConformsToProtocol");
+	}
+@end
+
 @interface UITableViewSource : NSObject/*<UIScrollViewDelegate>*/ {
 	void *__monoObjectGCHandle;
 }
@@ -919,6 +969,7 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 	-(void) release;
 	-(id) retain;
 	-(void) dealloc;
+	-(void) viewDidAppear:(bool)p0;
 	-(void) viewDidLoad;
 	-(bool) conformsToProtocol:(void *)p0;
 @end
@@ -939,6 +990,12 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 		monotouch_unregister_object (self, mono_gchandle_get_target (gchandle));
 		monotouch_free_gchandle (self, gchandle);
 		[super dealloc];
+	}
+
+	-(void) viewDidAppear:(bool)p0
+	{
+		static MonoMethod *managed_method = NULL;
+		native_to_managed_trampoline_6 (self, _cmd, &managed_method, p0, "System.Boolean, mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", "polymicsproject.RoomSelectController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "ViewDidAppear");
 	}
 
 	-(void) viewDidLoad
@@ -969,6 +1026,8 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 	-(void) setTxtPassword:(id)p0;
 	-(id) txtUsername;
 	-(void) setTxtUsername:(id)p0;
+	-(void) viewDidAppear:(bool)p0;
+	-(void) viewDidDisappear:(bool)p0;
 	-(void) viewDidLoad;
 	-(bool) conformsToProtocol:(void *)p0;
 @end
@@ -1025,6 +1084,18 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 	{
 		static MonoMethod *managed_method = NULL;
 		native_to_managed_trampoline_2 (self, _cmd, &managed_method, p0, "MonoTouch.UIKit.UITextField, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", "polymicsproject.LoginPageViewController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "set_txtUsername");
+	}
+
+	-(void) viewDidAppear:(bool)p0
+	{
+		static MonoMethod *managed_method = NULL;
+		native_to_managed_trampoline_6 (self, _cmd, &managed_method, p0, "System.Boolean, mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", "polymicsproject.LoginPageViewController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "ViewDidAppear");
+	}
+
+	-(void) viewDidDisappear:(bool)p0
+	{
+		static MonoMethod *managed_method = NULL;
+		native_to_managed_trampoline_6 (self, _cmd, &managed_method, p0, "System.Boolean, mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", "polymicsproject.LoginPageViewController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", "ViewDidDisappear");
 	}
 
 	-(void) viewDidLoad
@@ -1311,11 +1382,15 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 		{"UIView", "MonoTouch.UIKit.UIView, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"polymicsproject_LoadSpinner", "polymicsproject.LoadSpinner, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", NULL },
 		{"InQueueViewController", "polymicsproject.InQueueViewController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", NULL },
+		{"UIControl", "MonoTouch.UIKit.UIControl, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
+		{"UIButton", "MonoTouch.UIKit.UIButton, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
+		{"SwipeButton", "polymicsproject.SwipeButton, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", NULL },
 		{"UITableViewSource", "MonoTouch.UIKit.UITableViewSource, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"polymicsproject_RoomSelectController_RoomListController", "polymicsproject.RoomSelectController+RoomListController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", NULL },
 		{"UITableViewController", "MonoTouch.UIKit.UITableViewController, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"RoomSelectController", "polymicsproject.RoomSelectController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", NULL },
 		{"LoginPageViewController", "polymicsproject.LoginPageViewController, polymicsproject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null", NULL },
+		{"CALayer", "MonoTouch.CoreAnimation.CALayer, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"NSArray", "MonoTouch.Foundation.NSArray, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"NSIndexPath", "MonoTouch.Foundation.NSIndexPath, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"NSRunLoop", "MonoTouch.Foundation.NSRunLoop, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
@@ -1327,12 +1402,12 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 		{"UIApplication", "MonoTouch.UIKit.UIApplication, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIBarItem", "MonoTouch.UIKit.UIBarItem, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIBarButtonItem", "MonoTouch.UIKit.UIBarButtonItem, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
-		{"UIControl", "MonoTouch.UIKit.UIControl, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
-		{"UIButton", "MonoTouch.UIKit.UIButton, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIColor", "MonoTouch.UIKit.UIColor, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"MonoTouch_UIKit_UIControlEventProxy", "MonoTouch.UIKit.UIControlEventProxy, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIDevice", "MonoTouch.UIKit.UIDevice, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
+		{"UIEvent", "MonoTouch.UIKit.UIEvent, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIImage", "MonoTouch.UIKit.UIImage, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
+		{"UINavigationBar", "MonoTouch.UIKit.UINavigationBar, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UINavigationController", "MonoTouch.UIKit.UINavigationController, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIScreen", "MonoTouch.UIKit.UIScreen, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIScrollView", "MonoTouch.UIKit.UIScrollView, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
@@ -1343,10 +1418,13 @@ bool native_to_managed_trampoline_12 (id self, SEL _cmd, MonoMethod **managed_me
 		{"UILabel", "MonoTouch.UIKit.UILabel, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIImageView", "MonoTouch.UIKit.UIImageView, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UINavigationItem", "MonoTouch.UIKit.UINavigationItem, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
+		{"UITouch", "MonoTouch.UIKit.UITouch, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIStoryboard", "MonoTouch.UIKit.UIStoryboard, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UIStoryboardSegue", "MonoTouch.UIKit.UIStoryboardSegue, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
+		{"NSEnumerator", "MonoTouch.Foundation.NSEnumerator, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"NSException", "MonoTouch.Foundation.NSException, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"NSDictionary", "MonoTouch.Foundation.NSDictionary, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
+		{"NSSet", "MonoTouch.Foundation.NSSet, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"__NSObject_Disposer", "MonoTouch.Foundation.NSObject+NSObject_Disposer, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"MonoTouch_UIKit_UITextField__UITextFieldDelegate", "MonoTouch.UIKit.UITextField+_UITextFieldDelegate, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
 		{"UITextField", "MonoTouch.UIKit.UITextField, monotouch, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", NULL },
@@ -1364,45 +1442,52 @@ void monotouch_create_classes () {
 	__monotouch_class_map [6].handle = objc_getClass ("UIView");
 	__monotouch_class_map [7].handle = [polymicsproject_LoadSpinner class];
 	__monotouch_class_map [8].handle = [InQueueViewController class];
-	__monotouch_class_map [9].handle = objc_getClass ("UITableViewSource");
-	__monotouch_class_map [10].handle = [polymicsproject_RoomSelectController_RoomListController class];
-	__monotouch_class_map [11].handle = objc_getClass ("UITableViewController");
-	__monotouch_class_map [12].handle = [RoomSelectController class];
-	__monotouch_class_map [13].handle = [LoginPageViewController class];
-	__monotouch_class_map [14].handle = objc_getClass ("NSArray");
-	__monotouch_class_map [15].handle = objc_getClass ("NSIndexPath");
-	__monotouch_class_map [16].handle = objc_getClass ("NSRunLoop");
-	__monotouch_class_map [17].handle = objc_getClass ("NSString");
-	__monotouch_class_map [18].handle = objc_getClass ("__MonoMac_NSActionDispatcher");
-	__monotouch_class_map [19].handle = objc_getClass ("__MonoMac_NSAsyncActionDispatcher");
-	__monotouch_class_map [20].handle = objc_getClass ("NSAutoreleasePool");
-	__monotouch_class_map [21].handle = objc_getClass ("UIAlertView");
-	__monotouch_class_map [22].handle = objc_getClass ("UIApplication");
-	__monotouch_class_map [23].handle = objc_getClass ("UIBarItem");
-	__monotouch_class_map [24].handle = objc_getClass ("UIBarButtonItem");
-	__monotouch_class_map [25].handle = objc_getClass ("UIControl");
-	__monotouch_class_map [26].handle = objc_getClass ("UIButton");
-	__monotouch_class_map [27].handle = objc_getClass ("UIColor");
-	__monotouch_class_map [28].handle = objc_getClass ("MonoTouch_UIKit_UIControlEventProxy");
-	__monotouch_class_map [29].handle = objc_getClass ("UIDevice");
-	__monotouch_class_map [30].handle = objc_getClass ("UIImage");
-	__monotouch_class_map [31].handle = objc_getClass ("UINavigationController");
-	__monotouch_class_map [32].handle = objc_getClass ("UIScreen");
-	__monotouch_class_map [33].handle = objc_getClass ("UIScrollView");
-	__monotouch_class_map [34].handle = objc_getClass ("UITableView");
-	__monotouch_class_map [35].handle = objc_getClass ("UITableViewCell");
-	__monotouch_class_map [36].handle = objc_getClass ("UIWindow");
-	__monotouch_class_map [37].handle = objc_getClass ("UIActivityIndicatorView");
-	__monotouch_class_map [38].handle = objc_getClass ("UILabel");
-	__monotouch_class_map [39].handle = objc_getClass ("UIImageView");
-	__monotouch_class_map [40].handle = objc_getClass ("UINavigationItem");
-	__monotouch_class_map [41].handle = objc_getClass ("UIStoryboard");
-	__monotouch_class_map [42].handle = objc_getClass ("UIStoryboardSegue");
-	__monotouch_class_map [43].handle = objc_getClass ("NSException");
-	__monotouch_class_map [44].handle = objc_getClass ("NSDictionary");
-	__monotouch_class_map [45].handle = objc_getClass ("__NSObject_Disposer");
-	__monotouch_class_map [46].handle = objc_getClass ("MonoTouch_UIKit_UITextField__UITextFieldDelegate");
-	__monotouch_class_map [47].handle = objc_getClass ("UITextField");
-	monotouch_setup_classmap (__monotouch_class_map, 48);
+	__monotouch_class_map [9].handle = objc_getClass ("UIControl");
+	__monotouch_class_map [10].handle = objc_getClass ("UIButton");
+	__monotouch_class_map [11].handle = [SwipeButton class];
+	__monotouch_class_map [12].handle = objc_getClass ("UITableViewSource");
+	__monotouch_class_map [13].handle = [polymicsproject_RoomSelectController_RoomListController class];
+	__monotouch_class_map [14].handle = objc_getClass ("UITableViewController");
+	__monotouch_class_map [15].handle = [RoomSelectController class];
+	__monotouch_class_map [16].handle = [LoginPageViewController class];
+	__monotouch_class_map [17].handle = objc_getClass ("CALayer");
+	__monotouch_class_map [18].handle = objc_getClass ("NSArray");
+	__monotouch_class_map [19].handle = objc_getClass ("NSIndexPath");
+	__monotouch_class_map [20].handle = objc_getClass ("NSRunLoop");
+	__monotouch_class_map [21].handle = objc_getClass ("NSString");
+	__monotouch_class_map [22].handle = objc_getClass ("__MonoMac_NSActionDispatcher");
+	__monotouch_class_map [23].handle = objc_getClass ("__MonoMac_NSAsyncActionDispatcher");
+	__monotouch_class_map [24].handle = objc_getClass ("NSAutoreleasePool");
+	__monotouch_class_map [25].handle = objc_getClass ("UIAlertView");
+	__monotouch_class_map [26].handle = objc_getClass ("UIApplication");
+	__monotouch_class_map [27].handle = objc_getClass ("UIBarItem");
+	__monotouch_class_map [28].handle = objc_getClass ("UIBarButtonItem");
+	__monotouch_class_map [29].handle = objc_getClass ("UIColor");
+	__monotouch_class_map [30].handle = objc_getClass ("MonoTouch_UIKit_UIControlEventProxy");
+	__monotouch_class_map [31].handle = objc_getClass ("UIDevice");
+	__monotouch_class_map [32].handle = objc_getClass ("UIEvent");
+	__monotouch_class_map [33].handle = objc_getClass ("UIImage");
+	__monotouch_class_map [34].handle = objc_getClass ("UINavigationBar");
+	__monotouch_class_map [35].handle = objc_getClass ("UINavigationController");
+	__monotouch_class_map [36].handle = objc_getClass ("UIScreen");
+	__monotouch_class_map [37].handle = objc_getClass ("UIScrollView");
+	__monotouch_class_map [38].handle = objc_getClass ("UITableView");
+	__monotouch_class_map [39].handle = objc_getClass ("UITableViewCell");
+	__monotouch_class_map [40].handle = objc_getClass ("UIWindow");
+	__monotouch_class_map [41].handle = objc_getClass ("UIActivityIndicatorView");
+	__monotouch_class_map [42].handle = objc_getClass ("UILabel");
+	__monotouch_class_map [43].handle = objc_getClass ("UIImageView");
+	__monotouch_class_map [44].handle = objc_getClass ("UINavigationItem");
+	__monotouch_class_map [45].handle = objc_getClass ("UITouch");
+	__monotouch_class_map [46].handle = objc_getClass ("UIStoryboard");
+	__monotouch_class_map [47].handle = objc_getClass ("UIStoryboardSegue");
+	__monotouch_class_map [48].handle = objc_getClass ("NSEnumerator");
+	__monotouch_class_map [49].handle = objc_getClass ("NSException");
+	__monotouch_class_map [50].handle = objc_getClass ("NSDictionary");
+	__monotouch_class_map [51].handle = objc_getClass ("NSSet");
+	__monotouch_class_map [52].handle = objc_getClass ("__NSObject_Disposer");
+	__monotouch_class_map [53].handle = objc_getClass ("MonoTouch_UIKit_UITextField__UITextFieldDelegate");
+	__monotouch_class_map [54].handle = objc_getClass ("UITextField");
+	monotouch_setup_classmap (__monotouch_class_map, 55);
 }
 
